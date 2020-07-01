@@ -1,17 +1,64 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import React from "react";
+import ReactDOM from "react-dom";
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+// Hello 組件
+// 組件命名要大寫
+const Hello = () => {
+  return (
+    <div>
+      <p>Hello World!</p>
+    </div>
+  );
+};
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+// 組件 + 引數
+const Hello1 = (props) => {
+  return (
+    <div>
+      <p>Hello1 {props.name}</p>
+    </div>
+  );
+};
+
+// 組件 + 多引數
+const Hello2 = (props) => {
+  return (
+    <div>
+      <p>Hello2 {props.name} + {props.age}</p>
+    </div>
+  );
+};
+
+// 也可以用陣列方式取代 <div>，但不建議這樣作！
+const Hello3 = (props) =>{
+  return (
+    [
+      <p>Hello3 {props.name} + {props.age}</p>,
+      <h1>Test Hello3</h1>
+    ]
+  );
+}
+
+const App = () => {
+  const now = new Date();
+  const a = 10;
+  const b = 20;
+  console.log('test') // 一樣可以用 console.log()
+  return (
+    <> 
+    {/* 不要多一個 <div>的話可以用 <>...</>來取代 */}
+      <p>Hello world</p>
+      <p>
+        {a} plus {b} is {a + b}
+      </p>
+      <Hello />
+      <Hello />
+      <Hello1 name="Yuan" />
+      <Hello1 name="Yen" />
+      <Hello2 name="Eric" age={20} />
+      <Hello3 name="test" age={30} />
+    </>
+  );
+};
+
+ReactDOM.render(<App />, document.getElementById("root"));
