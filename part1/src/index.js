@@ -64,6 +64,20 @@ const Part1_b = () => {
     console.log(value); // numbers 1, -1, 3, 5 are printed, each to own line
   });
 
+  // map, 說是在React用的相當頻繁
+  console.log("map");
+  const t1 = [1, 2, 3];
+  const m1 = t1.map((value) => value * 2);
+  console.log(m1);
+  const m2 = t1.map((value) => "<li>" + value + "</li>");
+  console.log(m2);
+
+  // Destructuring assignment 解構賦值
+  console.log("Destructuring assignment 解構賦值");
+  const t2 = [1, 2, 3];
+  const [one, two, three] = t2;
+  console.log(one + " " + two + " " + three);
+
   return <div></div>;
 };
 
